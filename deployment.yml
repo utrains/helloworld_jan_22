@@ -1,0 +1,44 @@
+## Deployment
+---
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: app-dev1
+spec:
+  selector:
+    matchLabels:
+      app: app-dev1
+  replicas: 3 # tells deployment to run 2 pods matching the template
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+
+  template:
+    metadata:
+      labels:
+        app: app-dev1
+    spec:
+      containers:
+      - name: app-dev1
+        image: kserge2001/gcloud:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+## Service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-dev-service1
+  labels:
+    app: app-dev1
+spec:
+  selector:
+    app: app-dev1
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      targetPort: 8080
+#      nodePort: 31200

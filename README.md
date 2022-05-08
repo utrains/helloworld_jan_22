@@ -1,2 +1,3 @@
-# helloworld_jan_22
-for DevOps Training By Utrains
+# maven-project
+
+Simple Maven Project
