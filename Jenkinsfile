@@ -18,7 +18,7 @@ pipeline {
             tools {
         jdk "JAVA_HOME" // the name you have given the JDK installation in Global Tool Configuration
     } steps {
-        withSonarQubeEnv(installationName: 'sonarQube') {
+        withSonarQubeEnv(installationName: 'sonar') {
             sh "/opt/sonar-scanner/bin/sonar-scanner -X"
         }
             steps{
