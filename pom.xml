@@ -12,6 +12,8 @@
   <url>http://www.example.com</url>
 
   <properties>
+    <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
     <sonar.organization>devobed</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
   </properties>
