@@ -20,7 +20,7 @@ pipeline {
     }
             steps{
                 withSonarQubeEnv('sonar') {
-                sh "${scannerHome}/opt/sonar-scanner"
+                sh "/opt/sonar-scanner"
                 sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=DevObed_helloworld_pipeline'
                 
 
