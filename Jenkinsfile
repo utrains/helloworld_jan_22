@@ -13,7 +13,17 @@ pipeline {
             steps{
                 git branch: 'main', url: 'https://github.com/DevObed/helloworld_pipeline.git'
             }
+        } 
+        stage('Sonarqube scan'){
+            steps{
+                withSonarQubeEnv('sonar') {
+                    sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=DevObed_helloworld_pipeline'
+
+                }
+            }
         }
+
+                        
 
         stage('Code Build') {
             steps {
