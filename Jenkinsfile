@@ -17,12 +17,10 @@ pipeline {
         stage('Sonarqube scan'){
             tools {
         jdk "JAVA_HOME" // the name you have given the JDK installation in Global Tool Configuration
-    } steps {
-        withSonarQubeEnv(installationName: 'sonar') {
-            sh "/opt/sonar-scanner/bin/sonar-scanner -X"
-        }
+    }
             steps{
                 withSonarQubeEnv('sonar') {
+                    sh "/opt/sonar-scanner/bin/sonar-scanner -X"
                     sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=DevObed_helloworld_pipeline'
 
                 }
