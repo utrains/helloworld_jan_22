@@ -16,7 +16,7 @@ pipeline {
         } 
         stage('Sonarqube scan'){
             tools {
-        jdk "JAVA_HOME" // the name you have given the JDK installation in Global Tool Configuration
+        //jdk "JAVA_HOME" // the name you have given the JDK installation in Global Tool Configuration
     }
             steps{
                 withSonarQubeEnv('sonar') {
